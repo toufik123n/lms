@@ -68,7 +68,7 @@
                     <span class="nav-link-text ps-1">Employees</span></div>
                   </a>
                   <ul class="nav collapse" id="social">
-                    <li class="nav-item"><a class="nav-link" href="app/social/feed.html" data-bs-toggle="" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.employees.add')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Add Employee</span></div>
                       </a><!-- more inner pages-->
                     </li>
@@ -97,7 +97,7 @@
                     <span class="nav-link-text ps-1">Leaves Type</span></div>
                   </a>
                   <ul class="nav collapse" id="user">
-                    <li class="nav-item"><a class="nav-link" href="pages/user/profile.html" data-bs-toggle="" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves-type.add')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Add Leave Type</span></div>
                       </a><!-- more inner pages-->
                     </li>
@@ -109,16 +109,20 @@
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-question-circle"></span></span><span class="nav-link-text ps-1">Leaves</span></div>
                   </a>
                   <ul class="nav collapse" id="faq">
-                    <li class="nav-item"><a class="nav-link" href="pages/faq/faq-basic.html" data-bs-toggle="" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.apply')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Apply Leave</span></div>
                       </a><!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="pages/faq/faq-alt.html" data-bs-toggle="" aria-expanded="false">
-                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Approve Leave</span></div>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.approve')}}" data-bs-toggle="" aria-expanded="false">
+                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Leaves Approval</span></div>
                       </a><!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="pages/faq/faq-accordion.html" data-bs-toggle="" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.list')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Leaves List</span></div>
+                      </a><!-- more inner pages-->
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.report')}}" data-bs-toggle="" aria-expanded="false">
+                        <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Report</span></div>
                       </a><!-- more inner pages-->
                     </li>
                   </ul>

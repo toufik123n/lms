@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Departments;
+use App\Models\Designations;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -19,8 +21,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'e_department',
+        'e_designation',
+        'dob',
+        'contact',
+        'address',
         'email',
         'password',
+        'image',
+        'role',
     ];
 
     /**
@@ -32,6 +41,22 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+
+
+    //Relation with departments
+    public function department()
+    {
+        return $this->belongsTo(Departments::class, 'e_department');
+    }
+
+    public function designation()
+    {
+        return $this->belongsTo(Designations::class, 'e_designation');
+    }
+
+
 
     /**
      * The attributes that should be cast.
