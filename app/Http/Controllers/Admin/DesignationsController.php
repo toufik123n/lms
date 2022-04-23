@@ -35,4 +35,29 @@ class DesignationsController extends Controller
         ]);
         return redirect()->route('admin.designations.list')->with('msg','Designations added successfully.');
     }
+
+    public function edit($id){
+        $designation=Designations::find($id);
+        return view('admin.pages.designations-edit',compact('designation'));
+    }
+
+    public function update(Request $request, $id){
+        $designation=Designations::find($id);
+        // dd($designation);
+        $designation->update([
+
+            //db feild name || form field name
+            'name'=>$request->name,
+            'description'=>$request->description
+        ]);
+
+        return redirect()->route('admin.designations.list')->with('msg','Designations successfully updated.');
+    }
+
+
+    public function delete($id){
+        Designations::find($id)->delete();
+        return redirect()->route('admin.designations.list')->with('msg','Designations successfully deleted.');
+    }
+
 }

@@ -35,4 +35,31 @@ class DepartmentsController extends Controller
         ]);
         return redirect()->route('admin.departments.list')->with('msg','Department added successfully.');
     }
+
+
+
+    public function edit($id){
+        $department=Departments::find($id);
+        return view('admin.pages.departments-edit',compact('department'));
+    }
+
+
+    public function update(Request $request, $id){
+        $department=Departments::find($id);
+        // dd($designation);
+        $department->update([
+
+            //db feild name || form field name
+            'name'=>$request->name,
+            'description'=>$request->description
+        ]);
+
+        return redirect()->route('admin.departments.list')->with('msg','Department successfully updated.');
+    }
+
+
+    public function delete($id){
+        Departments::find($id)->delete();
+        return redirect()->route('admin.departments.list')->with('msg','Department successfully deleted.');
+    }
 }

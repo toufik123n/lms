@@ -14,12 +14,21 @@ class LeavesController extends Controller
 {
     public function leavesList()
     {
-        $leaves=Leaves::where('status','Approved')->orWhere('status','Denied')->get();
-        return view('admin.pages.leaves-list',compact('leaves'));
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $leaves=Leaves::with('leaveType')->whereIn('status',array('Approved','Denied'))
+            ->whereLike(['leaveType.name','name','email','day','start_date','end_date','days','reason','feedback','status'],$key)
+            ->get();
+            return view('admin.pages.leaves-list',compact('leaves','key'));
+        }
+
+        $leaves=Leaves::with('leaveType')->whereIn('status',array('Approved','Denied'))->get();
+        return view('admin.pages.leaves-list',compact('leaves','key'));
     }
 
     public function apply(){
-        $leaves_types=LeavesType::all();
+        $leaves_types=LeavesType::where('status','Active')->get();
         return view('admin.pages.leaves-apply',compact('leaves_types'));
     }
 

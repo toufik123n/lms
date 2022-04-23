@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><script nonce="90191d44-0e8a-4e9c-91ec-cb769febfe8b">(function(w,d){!function(a,e,t,r){a.zarazData=a.zarazData||{},a.zarazData.executed=[],a.zarazData.tracks=[],a.zaraz={deferred:[]},a.zaraz.track=(e,t)=>{for(key in a.zarazData.tracks.push(e),t)a.zarazData["z_"+key]=t[key]},a.zaraz._preSet=[],a.zaraz.set=(e,t,r)=>{a.zarazData["z_"+e]=t,a.zaraz._preSet.push([e,t,r])},a.addEventListener("DOMContentLoaded",(()=>{var t=e.getElementsByTagName(r)[0],z=e.createElement(r),n=e.getElementsByTagName("title")[0];n&&(a.zarazData.t=e.getElementsByTagName("title")[0].text),a.zarazData.w=a.screen.width,a.zarazData.h=a.screen.height,a.zarazData.j=a.innerHeight,a.zarazData.e=a.innerWidth,a.zarazData.l=a.location.href,a.zarazData.r=e.referrer,a.zarazData.k=a.screen.colorDepth,a.zarazData.n=e.characterSet,a.zarazData.o=(new Date).getTimezoneOffset(),z.defer=!0,z.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(a.zarazData))),t.parentNode.insertBefore(z,t)}))}(w,d,0,"script");})(window,document);</script>
-<title>Login V18</title>
+<title>Leave Management Login</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,8 +33,18 @@
 <div class="limiter">
 <div class="container-login100">
 <div class="wrap-login100">
-<form class="login100-form validate-form">
+<form action="{{route('doLogin')}}" method="post" class="login100-form validate-form">
+	@csrf
+
+	<!--temporary success message start-->
+@if(session()->has('msg'))
+<p class="alert alert-success">{{session()->get('msg')}}</p>
+@endif
+<!--temporary success message end-->
+
+
 <span style="color:#79FAC6" class="login100-form-title p-b-43">
+Leave Management System <br> <br> 
 Login to continue
 </span>
 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
@@ -43,7 +53,7 @@ Login to continue
 <span class="label-input100">Email</span>
 </div>
 <div class="wrap-input100 validate-input" data-validate="Password is required">
-<input class="input100" type="password" name="pass">
+<input class="input100" type="password" name="password">
 <span class="focus-input100"></span>
 <span class="label-input100">Password</span>
 </div>

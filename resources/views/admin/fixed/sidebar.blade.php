@@ -9,7 +9,7 @@
             <div class="toggle-icon-wrapper">
               <button class="btn navbar-toggler-humburger-icon navbar-vertical-toggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Navigation"><span class="navbar-toggle-icon"><span class="toggle-line"></span></span></button>
             </div><a class="navbar-brand" href="index.html">
-              <div class="d-flex align-items-center py-3"><img class="me-2" src="assets/img/icons/spot-illustrations/falcon.png" alt="" width="20" /><span class="font-sans-serif">Leave MS</span></div>
+              <div class="d-flex align-items-center py-3"><span class="font-sans-serif">{{$web_inf->name ?? ""}}</span></div>
             </a>
           </div>
           <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
@@ -28,6 +28,7 @@
                 </li>
                 <li class="nav-item">
                   <!-- label-->
+                  @if(auth()->user()->role=='admin')
                   <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
                     <div class="col-auto navbar-vertical-label">Employee Management</div>
                     <div class="col ps-0">
@@ -80,6 +81,7 @@
                 </li>
 
 
+                @endif
 
                 <li class="nav-item">
 
@@ -97,10 +99,12 @@
                     <span class="nav-link-text ps-1">Leaves Type</span></div>
                   </a>
                   <ul class="nav collapse" id="user">
+                  @if(auth()->user()->role=='admin')
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves-type.add')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Add Leave Type</span></div>
                       </a><!-- more inner pages-->
                     </li>
+                    @endif
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves-type.list')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Leaves Type List</span></div>
                       </a><!-- more inner pages-->
@@ -113,18 +117,23 @@
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Apply Leave</span></div>
                       </a><!-- more inner pages-->
                     </li>
+                    @if(auth()->user()->role=='admin')
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.approve')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Leaves Approval</span></div>
                       </a><!-- more inner pages-->
                     </li>
+                    @endif
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.list')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Leaves List</span></div>
                       </a><!-- more inner pages-->
                     </li>
+
+                    @if(auth()->user()->role=='admin')
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.leaves.report')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Report</span></div>
                       </a><!-- more inner pages-->
                     </li>
+                    @endif
                   </ul>
                 </li>
 
@@ -136,7 +145,7 @@
 
 
 
-
+                @if(auth()->user()->role=='admin')
                 <li class="nav-item">
                   <!-- label-->
                   <div class="row navbar-vertical-label-wrapper mt-3 mb-2">
@@ -148,15 +157,18 @@
                     <div class="d-flex align-items-center"><span class="nav-link-icon"><span class="fas fa-wrench"></span></span><span class="nav-link-text ps-1">Website Info</span></div>
                   </a>
                   <ul class="nav collapse" id="customization">
-                    <li class="nav-item"><a class="nav-link" href="documentation/customization/configuration.html" data-bs-toggle="" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.website-information.add')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Add Informations</span></div>
                       </a><!-- more inner pages-->
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="documentation/customization/styling.html" data-bs-toggle="" aria-expanded="false">
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.website-information')}}" data-bs-toggle="" aria-expanded="false">
                         <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Informations</span></div>
                       </a><!-- more inner pages-->
                     </li>
     
+                    @endif
+
+
                   </ul>
               </ul>
               <div class="settings mb-3">
