@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2022 at 05:30 PM
+-- Generation Time: Jun 17, 2022 at 07:54 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -118,11 +118,9 @@ CREATE TABLE `leaves` (
 INSERT INTO `leaves` (`id`, `e_id`, `name`, `email`, `leave_type_name`, `start_date`, `end_date`, `days`, `reason`, `feedback`, `status`, `created_at`, `updated_at`) VALUES
 (10, '220005', 'Sakibur Rashid', 'sakibur@gmail.com', '10', '2022-04-15', '2022-04-20', 6, 'i need 5 days break for mental health as i earned this leave', 'ok take your leave', 'Approved', '2022-05-07 07:21:34', '2022-05-07 07:33:37'),
 (11, '220004', 'Jubair hasan', 'jubair@gmail.com', '7', '2022-05-01', '2022-05-02', 2, 'i need 3 days leave for family purpose', 'Please try to adjust this week.Take it next week', 'Denied', '2022-05-07 08:00:21', '2022-05-07 08:02:03'),
-(12, '220004', 'Jubair hasan', 'jubair@gmail.com', '7', '2022-04-07', '2022-04-10', 4, 'family purpose', 'take your time', 'Approved', '2022-05-07 08:06:20', '2022-05-07 08:07:08'),
 (13, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '3', '2022-05-06', '2022-05-09', 4, 'suffering from fever', 'ok take care', 'Approved', '2022-05-07 21:51:22', '2022-05-07 21:52:08'),
-(14, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '7', '2022-05-01', '2022-05-03', 3, 'family issue', NULL, 'Approved', '2022-05-07 21:53:37', '2022-05-07 21:54:18'),
-(15, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '3', '2022-04-08', '2022-04-10', 3, 'i am suffering from backpain', NULL, 'Approved', '2022-05-07 21:56:24', '2022-05-07 21:57:04'),
-(17, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '7', '2022-05-08', '2022-05-08', 1, 'emergency', 'take care', 'Approved', '2022-05-08 00:02:19', '2022-05-08 00:06:31');
+(23, '220004', 'Jubair hasan', 'jubair@gmail.com', '10', '2022-05-01', '2022-05-01', 1, NULL, NULL, 'Denied', '2022-05-10 11:55:11', '2022-05-10 11:57:57'),
+(24, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '7', '2022-05-08', '2022-05-11', 4, 'emergency', NULL, 'Approved', '2022-05-10 22:54:16', '2022-05-10 22:55:43');
 
 -- --------------------------------------------------------
 
@@ -145,11 +143,11 @@ CREATE TABLE `leaves_types` (
 --
 
 INSERT INTO `leaves_types` (`id`, `name`, `description`, `credit`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Sick Leave', 'Sick leave is paid time off from work that workers can use to stay home to address their health needs without losing pay', 15, 'Active', '2022-04-22 10:31:22', '2022-04-30 04:06:05'),
+(3, 'Sick Leave', 'Sick leave is paid time off from work that workers can use to stay home to address their health needs without losing pay', 15, 'Active', '2022-04-22 10:31:22', '2022-05-10 08:52:05'),
 (5, 'Maternity Leave', 'Mothers are required to take four weeks’ leave after their baby is born', 120, 'Active', '2022-04-24 10:16:23', '2022-04-24 10:16:23'),
 (7, 'Casual leave', 'Casual leave is taken by an employee for travel, vacation, rest, and family events', 10, 'Active', '2022-04-30 04:08:20', '2022-04-30 04:08:20'),
 (8, 'Annual Leave', 'Every adult worker having after competition one year of continuous service in an establishment, shall able to claim annual leave', 14, 'Active', '2022-04-30 04:13:18', '2022-05-07 06:17:25'),
-(9, 'Paternity Leave', 'The Paternity Leave is a leave offered to expectant fathers after a child is born', 30, 'Active', '2022-04-30 04:54:31', '2022-04-30 04:54:31'),
+(9, 'Paternity Leave', 'The Paternity Leave is a leave offered to expectant fathers after a child is born', 30, 'Active', '2022-04-30 04:54:31', '2022-05-10 08:54:41'),
 (10, 'Earn Leave', 'These are the leaves which are earned in the previous year and enjoyed in the preceding years', 10, 'Active', '2022-05-07 07:18:43', '2022-05-07 07:18:43');
 
 -- --------------------------------------------------------
@@ -235,7 +233,8 @@ INSERT INTO `users` (`id`, `name`, `e_department`, `e_designation`, `dob`, `cont
 (220002, 'Kabir', '7', '7', '2000-02-01', 1786320774, 'Uttara,Dhaka', 'rkabir8280@gmail.com', NULL, '$2y$10$Hl7bTOHWJpwtHQGRlXOsCeD/z7T5B/0Meh96x/g3HbXPjYCqYhfEW', '20220506060510.jpg', 'employee', NULL, '2022-05-06 00:03:49', '2022-05-06 00:04:10'),
 (220003, 'Sania', '9', '11', '1996-06-06', 1786320774, 'Mirpur 1, Dhaka', 'sania@gmail.com', NULL, '$2y$10$EYNjhYSwP9FhudXJfdsIrO3xDUoEuKIv6bhVOu4w0adN/TO8VSNU2', '20220506040554.jpg', 'employee', NULL, '2022-05-06 10:30:54', '2022-05-06 10:30:54'),
 (220004, 'Jubair hasan', '9', '8', '1999-05-07', 1748411476, 'Adabor,mohammadpur,dhaka', 'jubair@gmail.com', NULL, '$2y$10$49YG8LHANx/24kq6VQui8OjztKFJufYqxjz3MGHNX/lX88nLayQCG', '20220507010513.jpg', 'employee', NULL, '2022-05-07 07:14:13', '2022-05-07 07:56:53'),
-(220005, 'Sakibur Rashid', '10', '11', '1996-06-07', 1718896606, 'Mirpur 1, Dhaka', 'sakibur@gmail.com', NULL, '$2y$10$aHWprtzW2Ip9ENd0ZRoj2eShsmVQUxFYKKnl1pPdW9F3AJHfFXGvC', '20220507010558.jpg', 'employee', NULL, '2022-05-07 07:17:12', '2022-05-07 07:57:58');
+(220005, 'Sakibur Rashid', '10', '11', '1996-06-07', 1718896606, 'Mirpur 1, Dhaka', 'sakibur@gmail.com', NULL, '$2y$10$aHWprtzW2Ip9ENd0ZRoj2eShsmVQUxFYKKnl1pPdW9F3AJHfFXGvC', '20220507010558.jpg', 'employee', NULL, '2022-05-07 07:17:12', '2022-05-07 07:57:58'),
+(220006, 'Rabiul Haque', '4', '8', '1995-03-22', 1914553278, 'noddapara,kawla ,airport', 'rabiul@gmail.com', NULL, '$2y$10$5BShD00IF3LBMMi.NpZ62.XQTnBUanHTpllCD6R6UlXcvDtrpswaC', '20220510020514.png', 'employee', NULL, '2022-05-10 08:43:14', '2022-05-10 08:43:14');
 
 -- --------------------------------------------------------
 
@@ -255,7 +254,7 @@ CREATE TABLE `web_infos` (
 --
 
 INSERT INTO `web_infos` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(7, 'Leave MS', '2022-04-19 00:24:23', '2022-05-06 15:38:06');
+(8, 'Leave MS', '2022-05-10 13:31:20', '2022-05-10 13:33:09');
 
 --
 -- Indexes for dumped tables
@@ -354,7 +353,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `leaves_types`
@@ -378,13 +377,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220006;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220007;
 
 --
 -- AUTO_INCREMENT for table `web_infos`
 --
 ALTER TABLE `web_infos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
