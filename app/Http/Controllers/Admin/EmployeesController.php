@@ -7,6 +7,7 @@ use App\Models\Departments;
 use App\Models\Designations;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class EmployeesController extends Controller
 {
@@ -17,7 +18,7 @@ class EmployeesController extends Controller
         if(request()->search){
             $key=request()->search;
             $employees=User::with('department','designation')->where('role','employee')
-            ->whereLike(['department.name','designation.name','name','dob','contact','address','email','role'],$key)
+            ->whereLike(['department.name','designation.name','id','name','dob','contact','address','email','role'],$key)
             ->get();
             return view('admin.pages.employees-list',compact('employees','key'));
         }
@@ -52,8 +53,11 @@ class EmployeesController extends Controller
             'contact'=>'min:11|max:11'
         ]);
 
+
+
         User::Create([
             //db feild name || form field name
+            'id'=>IdGenerator::generate(['table' => 'users', 'length' => 6, 'prefix' => date('y')]),
             'name'=>$request->name,
             'e_department'=>$request->depatment,
             'e_designation'=>$request->designation,

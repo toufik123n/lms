@@ -50,12 +50,12 @@ Login to continue
 <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
 <input class="input100" type="text" name="email">
 <span class="focus-input100"></span>
-<span class="label-input100">Email</span>
+<span style="color:white" class="label-input100">Email</span>
 </div>
 <div class="wrap-input100 validate-input" data-validate="Password is required">
 <input class="input100" type="password" name="password">
 <span class="focus-input100"></span>
-<span class="label-input100">Password</span>
+<span style="color:white" class="label-input100">Password</span>
 </div>
 <div class="flex-sb-m w-full p-t-3 p-b-32">
 <div class="contact100-form-checkbox">

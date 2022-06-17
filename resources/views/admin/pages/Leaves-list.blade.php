@@ -42,10 +42,10 @@
   <thead>
   <tr style='background-color:#00ffff'>
       <th scope="col">#</th>
+      <th scope="col">Employee ID</th>
       <th scope="col">Employee Name</th>
       <th scope="col">Employee Email</th>
       <th scope="col">Leave Type</th>
-      <th scope="col">Day Type</th>
       <th scope="col">Start Date</th>
       <th scope="col">End Date</th>
       <th scope="col">Days</th>
@@ -62,10 +62,10 @@
 
 
       <td>{{$key+1}}</td>
+      <td>{{$leave->e_id}}</td>
       <td>{{$leave->name}}</td>
       <td>{{$leave->email}}</td>
-      <td>{{$leave->leaveType->name ?? ""}}</td>
-      <td>{{$leave->day}}</td>
+      <td><a href="{{route('admin.leaves.available',$leave->id)}}">{{$leave->leaveType->name ?? ""}}</a></td>
       <td>{{$leave->start_date}}</td>
       <td>{{$leave->end_date}}</td>
       <td>{{$leave->days}}</td>

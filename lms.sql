@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2022 at 07:14 PM
+-- Generation Time: May 09, 2022 at 05:30 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -40,9 +40,11 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
-(4, 'IT', 'Information Technology', '2022-04-18 00:12:32', '2022-04-18 00:12:32'),
-(6, 'Admin', NULL, '2022-04-22 02:14:49', '2022-04-22 02:14:49'),
-(7, 'HR', 'Human resources', '2022-04-22 10:21:00', '2022-04-22 10:21:00');
+(4, 'IT', 'The IT department oversees the installation and maintenance of computer network systems within a company', '2022-04-18 00:12:32', '2022-04-24 09:44:37'),
+(7, 'HR', 'Human resources', '2022-04-22 10:21:00', '2022-04-22 10:21:00'),
+(8, 'Finance', 'The finance department ensures the adequate and timely provision of funds for the business\'s operations', '2022-04-24 09:40:29', '2022-04-24 09:40:29'),
+(9, 'operations Management', 'administration of business practices to create the highest level of efficiency', '2022-04-24 09:42:47', '2022-04-24 09:42:47'),
+(10, 'Marketing', 'Marketing and lead generation for IT companies', '2022-04-24 09:43:54', '2022-04-24 09:43:54');
 
 -- --------------------------------------------------------
 
@@ -64,9 +66,12 @@ CREATE TABLE `designations` (
 
 INSERT INTO `designations` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'IT Tech Lead', 'Leader of IT', '2022-04-08 03:59:56', '2022-04-08 03:59:56'),
-(5, 'Admin', NULL, '2022-04-22 02:17:14', '2022-04-22 02:17:14'),
 (6, 'Jr Software Developer', 'entry-level software developers', '2022-04-22 10:20:04', '2022-04-22 10:20:04'),
-(7, 'Recruiting Manager', 'Recruitment managers will work closely with our recruiters to manage sourcing, interviewing and employment processes', '2022-04-22 10:23:08', '2022-04-22 10:23:08');
+(7, 'Recruiting Manager', 'Recruitment managers will work closely with our recruiters to manage sourcing, interviewing and employment processes', '2022-04-22 10:23:08', '2022-04-22 10:23:08'),
+(8, 'Software Engineer', 'research, design and write new software programs', '2022-04-24 09:47:51', '2022-04-24 09:47:51'),
+(9, 'Chief Architect', 'The Chief Architect designs technology architecture to align with enterprise standards, processes, procedures, and targets', '2022-04-24 09:49:01', '2022-04-24 09:49:01'),
+(10, 'HR executive', 'HR Executive responsibilities include creating referral programs, updating HR policies and overseeing our hiring processes', '2022-04-24 09:49:51', '2022-04-24 09:49:51'),
+(11, 'Account Executive', 'Elements of the account executive role include planning and coordination of account activity', '2022-04-24 10:00:23', '2022-04-24 10:00:23');
 
 -- --------------------------------------------------------
 
@@ -92,10 +97,10 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `leaves` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `e_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `leave_type_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `day` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `end_date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `days` int(11) NOT NULL,
@@ -110,9 +115,14 @@ CREATE TABLE `leaves` (
 -- Dumping data for table `leaves`
 --
 
-INSERT INTO `leaves` (`id`, `name`, `email`, `leave_type_name`, `day`, `start_date`, `end_date`, `days`, `reason`, `feedback`, `status`, `created_at`, `updated_at`) VALUES
-(3, 'Toufik', 'toufikurrahman2@gmail.com', '1', 'Full', '2022-04-14', '2022-04-14', 1, NULL, NULL, 'Approved', '2022-04-15 03:42:14', '2022-04-22 11:09:27'),
-(8, 'Toufik', 'toufikurrahman2@gmail.com', '3', 'Full', '2022-04-22', '2022-04-23', 2, 'Hospitalization for road accident', 'Approved. Get well soon.', 'Approved', '2022-04-22 10:47:36', '2022-04-22 10:49:21');
+INSERT INTO `leaves` (`id`, `e_id`, `name`, `email`, `leave_type_name`, `start_date`, `end_date`, `days`, `reason`, `feedback`, `status`, `created_at`, `updated_at`) VALUES
+(10, '220005', 'Sakibur Rashid', 'sakibur@gmail.com', '10', '2022-04-15', '2022-04-20', 6, 'i need 5 days break for mental health as i earned this leave', 'ok take your leave', 'Approved', '2022-05-07 07:21:34', '2022-05-07 07:33:37'),
+(11, '220004', 'Jubair hasan', 'jubair@gmail.com', '7', '2022-05-01', '2022-05-02', 2, 'i need 3 days leave for family purpose', 'Please try to adjust this week.Take it next week', 'Denied', '2022-05-07 08:00:21', '2022-05-07 08:02:03'),
+(12, '220004', 'Jubair hasan', 'jubair@gmail.com', '7', '2022-04-07', '2022-04-10', 4, 'family purpose', 'take your time', 'Approved', '2022-05-07 08:06:20', '2022-05-07 08:07:08'),
+(13, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '3', '2022-05-06', '2022-05-09', 4, 'suffering from fever', 'ok take care', 'Approved', '2022-05-07 21:51:22', '2022-05-07 21:52:08'),
+(14, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '7', '2022-05-01', '2022-05-03', 3, 'family issue', NULL, 'Approved', '2022-05-07 21:53:37', '2022-05-07 21:54:18'),
+(15, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '3', '2022-04-08', '2022-04-10', 3, 'i am suffering from backpain', NULL, 'Approved', '2022-05-07 21:56:24', '2022-05-07 21:57:04'),
+(17, '220001', 'Toufik', 'toufikurrahman2@gmail.com', '7', '2022-05-08', '2022-05-08', 1, 'emergency', 'take care', 'Approved', '2022-05-08 00:02:19', '2022-05-08 00:06:31');
 
 -- --------------------------------------------------------
 
@@ -135,9 +145,12 @@ CREATE TABLE `leaves_types` (
 --
 
 INSERT INTO `leaves_types` (`id`, `name`, `description`, `credit`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Casual Leave', 'For Personal Purpose', 2, 'Unavailable', '2022-04-11 03:15:30', '2022-04-22 10:38:54'),
-(3, 'Sick Leave', 'Sick leave is paid time off from work that workers can use to stay home to address their health needs without losing pay', 4, 'Active', '2022-04-22 10:31:22', '2022-04-22 10:31:22'),
-(4, 'Emergency', 'For Argent Purpose', 1, 'Active', '2022-04-22 10:42:29', '2022-04-22 10:42:29');
+(3, 'Sick Leave', 'Sick leave is paid time off from work that workers can use to stay home to address their health needs without losing pay', 15, 'Active', '2022-04-22 10:31:22', '2022-04-30 04:06:05'),
+(5, 'Maternity Leave', 'Mothers are required to take four weeks’ leave after their baby is born', 120, 'Active', '2022-04-24 10:16:23', '2022-04-24 10:16:23'),
+(7, 'Casual leave', 'Casual leave is taken by an employee for travel, vacation, rest, and family events', 10, 'Active', '2022-04-30 04:08:20', '2022-04-30 04:08:20'),
+(8, 'Annual Leave', 'Every adult worker having after competition one year of continuous service in an establishment, shall able to claim annual leave', 14, 'Active', '2022-04-30 04:13:18', '2022-05-07 06:17:25'),
+(9, 'Paternity Leave', 'The Paternity Leave is a leave offered to expectant fathers after a child is born', 30, 'Active', '2022-04-30 04:54:31', '2022-04-30 04:54:31'),
+(10, 'Earn Leave', 'These are the leaves which are earned in the previous year and enjoyed in the preceding years', 10, 'Active', '2022-05-07 07:18:43', '2022-05-07 07:18:43');
 
 -- --------------------------------------------------------
 
@@ -156,15 +169,7 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(2, '2014_10_12_100000_create_password_resets_table', 1),
-(3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_04_02_070712_create_departments_table', 1),
-(6, '2022_04_03_084116_create_designations_table', 1),
-(7, '2022_04_08_081142_create_leaves_types_table', 1),
-(10, '2014_10_12_000000_create_users_table', 2),
-(12, '2022_04_14_164617_create_leaves_table', 3),
-(14, '2022_04_16_205645_create_web_infos_table', 4);
+(1, '2013_04_14_164617_create_leaves_table', 1);
 
 -- --------------------------------------------------------
 
@@ -225,10 +230,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `e_department`, `e_designation`, `dob`, `contact`, `address`, `email`, `email_verified_at`, `password`, `image`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(30, 'admin', 'Admin', 'Admin', '2000-04-21', 1860447466, 'Uttara', 'admin@gmail.com', NULL, '$2y$10$TCQ2SJlNKO82wI6fKHLCnOmsPWQ7auF1MBsv2UzI2PgEDlojGqBD6', '20220422040443.png', 'admin', NULL, '2022-04-22 02:19:36', '2022-04-22 10:16:35'),
-(31, 'Toufik', '4', '1', '2000-04-04', 1860447466, 'Uttara,Dhaka', 'toufikurrahman2@gmail.com', NULL, '$2y$10$LGWO9yWLTwe22S8ze0Nzq.YOGNoKtHPNf5y793iY1.3Z0PkSWBnyu', '20220422090454.jpg', 'employee', NULL, '2022-04-22 03:34:54', '2022-04-22 03:34:54'),
-(32, 'Kabir', '4', '6', '2002-01-22', 1786320774, 'Mirpur 1, Dhaka', 'rkabir8280@gmail.com', NULL, '$2y$10$A64L/r5Pw9eTuBDkc.KxJu1hg6baXvibBJKe8JbcTmVLSIMNgz6CC', '20220422040449.png', 'employee', NULL, '2022-04-22 10:25:30', '2022-04-22 10:26:49'),
-(33, 'Tania', '7', '7', '1999-04-07', 1786320774, 'Khilkhet, Dhaka', 'tania@gmail.com', NULL, '$2y$10$wPmrvs6yTUVrBSPhSRR9Q.zV6AJBqgozwxsl4IWFqT7Yae9Sa.6SK', '20220422040403.jpg', 'employee', NULL, '2022-04-22 10:29:04', '2022-04-22 10:29:04');
+(1, 'admin', 'Admin', 'Admin', '2000-04-21', 1860447466, 'Uttara', 'admin@gmail.com', NULL, '$2y$10$T/jTUKonpjxjXJg6uE3Lw.ZuupaL9s.qvV1etIDY0S0ii7huq3dKm', '20220508030515.jpg', 'admin', NULL, '2022-05-05 15:30:57', '2022-05-07 21:50:15'),
+(220001, 'Toufik', '4', '1', '1998-03-05', 1860447466, 'Khilkhet, Dhaka', 'toufikurrahman2@gmail.com', NULL, '$2y$10$xAmjwkMgR4FKsqc2SwPkhOrsWWg8b5x4ugAyxIO5.0G6hlRAsr9xG', '20220506050558.png', 'employee', NULL, '2022-05-05 23:59:58', '2022-05-05 23:59:58'),
+(220002, 'Kabir', '7', '7', '2000-02-01', 1786320774, 'Uttara,Dhaka', 'rkabir8280@gmail.com', NULL, '$2y$10$Hl7bTOHWJpwtHQGRlXOsCeD/z7T5B/0Meh96x/g3HbXPjYCqYhfEW', '20220506060510.jpg', 'employee', NULL, '2022-05-06 00:03:49', '2022-05-06 00:04:10'),
+(220003, 'Sania', '9', '11', '1996-06-06', 1786320774, 'Mirpur 1, Dhaka', 'sania@gmail.com', NULL, '$2y$10$EYNjhYSwP9FhudXJfdsIrO3xDUoEuKIv6bhVOu4w0adN/TO8VSNU2', '20220506040554.jpg', 'employee', NULL, '2022-05-06 10:30:54', '2022-05-06 10:30:54'),
+(220004, 'Jubair hasan', '9', '8', '1999-05-07', 1748411476, 'Adabor,mohammadpur,dhaka', 'jubair@gmail.com', NULL, '$2y$10$49YG8LHANx/24kq6VQui8OjztKFJufYqxjz3MGHNX/lX88nLayQCG', '20220507010513.jpg', 'employee', NULL, '2022-05-07 07:14:13', '2022-05-07 07:56:53'),
+(220005, 'Sakibur Rashid', '10', '11', '1996-06-07', 1718896606, 'Mirpur 1, Dhaka', 'sakibur@gmail.com', NULL, '$2y$10$aHWprtzW2Ip9ENd0ZRoj2eShsmVQUxFYKKnl1pPdW9F3AJHfFXGvC', '20220507010558.jpg', 'employee', NULL, '2022-05-07 07:17:12', '2022-05-07 07:57:58');
 
 -- --------------------------------------------------------
 
@@ -248,7 +255,7 @@ CREATE TABLE `web_infos` (
 --
 
 INSERT INTO `web_infos` (`id`, `name`, `created_at`, `updated_at`) VALUES
-(7, 'Leave MS', '2022-04-19 00:24:23', '2022-04-22 10:54:38');
+(7, 'Leave MS', '2022-04-19 00:24:23', '2022-05-06 15:38:06');
 
 --
 -- Indexes for dumped tables
@@ -329,13 +336,13 @@ ALTER TABLE `web_infos`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `designations`
 --
 ALTER TABLE `designations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -347,19 +354,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `leaves`
 --
 ALTER TABLE `leaves`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `leaves_types`
 --
 ALTER TABLE `leaves_types`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -371,7 +378,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220006;
 
 --
 -- AUTO_INCREMENT for table `web_infos`
